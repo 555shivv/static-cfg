@@ -1,0 +1,208 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #555;
+}
+
+/* Breadcrumbs styling */
+#breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 10px 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+#breadcrumbs > span {
+    font-size: 14px;
+    color: #007BFF;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#breadcrumbs > span:hover {
+    text-decoration: underline;
+}
+
+/* Main container styling */
+/* Styling for the images in the file view */
+/* Styling for the images in the file view */
+.file img {
+    width: 200px; /* Set a fixed width */
+    height: 150px; /* Set a fixed height */
+    object-fit: cover; /* Ensures the image covers the set area without distortion */
+    cursor: pointer; /* Show a pointer on hover to indicate the image is clickable */
+    transition: transform 0.2s ease-in-out; /* Smooth zoom effect */
+}
+
+.file img:hover {
+    transform: scale(1.1); /* Zoom effect when the image is hovered */
+}
+
+/* Modal styles */
+#modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding-top: 60px;
+}
+
+/* Modal content (the large image) */
+#modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+}
+
+/* Close button for the modal */
+#modal-close {
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    cursor: pointer;
+}
+
+#modal-close:hover,
+#modal-close:focus {
+    color: #f1f1f1;
+    text-decoration: none;
+    cursor: pointer;
+}
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Folder and image cards */
+.folder, .image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.folder:hover, .image:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.folder img, .image img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.folder p, .image p {
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+    margin: 0;
+}
+
+/* Modal for image preview */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.modal-close:hover {
+    color: #ff4b4b;
+}
+
+/* Footer links */
+#link {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 20px;
+}
+
+#link a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+#link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    #breadcrumbs {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .container {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .folder img, .image img {
+        width: 60px;
+        height: 60px;
+    }
+}
