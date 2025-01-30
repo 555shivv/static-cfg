@@ -12,7 +12,7 @@ const fileStructure = {
         Gemini_outputs: ["bank.png","Calculator.png","e commerce.png","fitness.png","food delivery.png","grade.png","hospital.png","job app.png","library.png","Login Authentication.png","restaurant.png","shopping cart.png","traffic lights.png","temperature.png","Calculator.png","travel booking.png"],
         lamma3_outputs: ["bank.png", "Calculator.png", "e commerce.png", "fitness monitor.png", "food delivery.png", "grade.png", "hospital.png", "job application.png", "library.png", "Login Authentication.png", "restaurant.png", "shopping cart.png", "traffic lights.png", "Temperature.png", "travel booking.png"],
         openai_outputs: ["bank.png", "Calculator.png", "e commerce.png", "fitness track.png", "food delivery.png", "grade.png", "hospital.png", "job application.png", "library.png", "Login Authentication.png", "restaurant.png", "shopping cart.png", "traffic lights.png", "temperature.png", "travel booking.png"],
-        original_images:  ["bank.png", "Calculator.png", "e commerce.png", "fitness.png", "food.png", "grade.png", "hospital.png", "job app.png", "library.png", "Login Authentication.png", "restaurant.png", "shopping cart.png", "traffic lights.png", "temperature.png", "travel booking.png"]
+        original_images:  ["bank.png", "Calculator.png", "e commerce.png", "Fitness.png", "food.png", "Grade.png", "Hospital.png", "Job Application.png", "library.png", "Login authentication.png", "restaurant.png", "shopping cart.png", "traffic.png", "temperature.png", "travel.png"]
     },
     dataset_outputs: {
         fusion: ["Child care.png","defense information management.png","digital library.png","money transaction.png","Weather and road monitoring.png"],

@@ -1,4 +1,125 @@
 /* General styles */
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    padding: 20px;
+}
+
+/* Container to hold content */
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Breadcrumb */
+#breadcrumbs {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+#breadcrumbs a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+#breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+/* Folder and File styles */
+.folder, .file {
+    width: 150px;
+    text-align: center;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.folder img, .file img {
+    max-width: 100%;
+    border-radius: 5px;
+    transition: transform 0.2s ease;
+}
+
+.folder p, .file p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.folder:hover, .file:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.folder:hover img, .file:hover img {
+    transform: scale(1.1);
+}
+
+/* Modal */
+#modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-image {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #fff;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+#modal-close:hover {
+    background-color: #f1f1f1;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .folder, .file {
+        width: 100%;
+        max-width: 250px;
+    }
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
