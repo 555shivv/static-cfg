@@ -32,10 +32,43 @@ const fileStructure = {
 // Initialize current path to root
 let currentPath = [];
 
+// Function to render breadcrumbs properly
+function updateBreadcrumbs() {
+    breadcrumbs.innerHTML = ''; // Clear existing breadcrumbs
+
+    // Add "Home" link
+    const homeLink = document.createElement("span");
+    homeLink.textContent = "Home";
+    homeLink.classList.add("breadcrumb-link");
+    homeLink.onclick = () => {
+        currentPath = [];
+        renderContent(currentPath);
+    };
+    breadcrumbs.appendChild(homeLink);
+
+    // Add folder structure links
+    let pathAccumulator = [];
+    currentPath.forEach((folder, index) => {
+        pathAccumulator.push(folder);
+
+        const separator = document.createTextNode(" > ");
+        breadcrumbs.appendChild(separator);
+
+        const folderLink = document.createElement("span");
+        folderLink.textContent = folder;
+        folderLink.classList.add("breadcrumb-link");
+        folderLink.onclick = () => {
+            currentPath = pathAccumulator.slice(0, index + 1);
+            renderContent(currentPath);
+        };
+        breadcrumbs.appendChild(folderLink);
+    });
+}
+
 // Render folders and files
 function renderContent(path) {
     container.innerHTML = ""; // Clear the container
-    breadcrumbs.innerHTML = path.join(" > ") || "Home"; // Show breadcrumbs
+    updateBreadcrumbs(); // Update breadcrumbs
 
     let currentFolder = fileStructure;
 
@@ -115,13 +148,43 @@ function openInNewTab(filePath) {
     window.open(filePath, "_blank");
 }
 
-// Navigate back
-breadcrumbs.onclick = () => {
-    if (currentPath.length > 0) {
-        currentPath.pop();
-        renderContent(currentPath);
-    }
-};
-
 // Initial render
 renderContent(currentPath);
+document.addEventListener("DOMContentLoaded", function () {
+    const images = document.querySelectorAll(".file img, .image img");
+    const modal = document.createElement("div");
+    modal.classList.add("modal");
+    modal.innerHTML = `
+        <span class="modal-close">&times;</span>
+        <img class="modal-content">
+    `;
+    document.body.appendChild(modal);
+
+    const modalImage = modal.querySelector(".modal-content");
+    const closeModal = modal.querySelector(".modal-close");
+
+    images.forEach(img => {
+        img.addEventListener("click", function () {
+            modal.style.display = "flex";
+            modalImage.src = this.src;
+        });
+    });
+
+    closeModal.addEventListener("click", function () {
+        modal.style.display = "none";
+    });
+
+    modal.addEventListener("click", function (e) {
+        if (e.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+    const linkContainer = document.getElementById("link");
+    if (linkContainer) {
+        linkContainer.style.display = "flex";
+        linkContainer.style.justifyContent = "center";
+        linkContainer.style.alignItems = "center";
+        linkContainer.style.flexDirection = "column";
+        linkContainer.style.marginTop = "40px";
+    }
+});

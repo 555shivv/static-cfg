@@ -1,260 +1,92 @@
-/* General styles */
-/* Global Styles */
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
+/* Body Styling */
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f4f4f9;
+    background: linear-gradient(to right, #ece9e6, #ffffff);
     color: #333;
     padding: 20px;
 }
 
-/* Container to hold content */
+/* Heading Styling */
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2rem;
+    color: #444;
+}
+
+/* Container Styling */
 #container {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
+    max-width: 1200px;
+    margin: auto;
 }
 
-/* Breadcrumb */
-#breadcrumbs {
-    font-size: 16px;
-    margin-bottom: 20px;
-    color: #555;
-}
-
-#breadcrumbs a {
-    text-decoration: none;
-    color: #007bff;
-}
-
-#breadcrumbs a:hover {
-    text-decoration: underline;
-}
-
-/* Folder and File styles */
+/* Folder and File Styles */
 .folder, .file {
-    width: 200px;
+    width: 220px;
     text-align: center;
-    border-radius: 8px;
+    border-radius: 10px;
     padding: 15px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.folder img, .file img {
-    max-width: 100%;
-    border-radius: 5px;
-    transition: transform 0.2s ease;
-}
-
-.folder p, .file p {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #333;
+    background: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 .folder:hover, .file:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.folder img, .file img {
+    max-width: 100px;
+    height:100px;
+    width:100px;
+    object-fit: cover;
+    transition: transform 0.2s ease-in-out;
 }
 
 .folder:hover img, .file:hover img {
     transform: scale(1.1);
 }
 
-/* Modal */
-#modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    display: none;
-    justify-content: center;
-    align-items: center;
-}
-
-#modal-image {
-    max-width: 90%;
-    max-height: 80%;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-#modal-close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: #fff;
-    border: none;
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 50%;
-}
-
-#modal-close:hover {
-    background-color: #f1f1f1;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    #container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .folder, .file {
-        width: 100%;
-        max-width: 250px;
-    }
-}
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
-    color: #333;
-}
-
-h1 {
-    text-align: center;
-    margin-top: 20px;
+.folder p, .file p {
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: 500;
     color: #555;
 }
 
-/* Breadcrumbs styling */
+/* Breadcrumb Navigation */
 #breadcrumbs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    padding: 10px 20px;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
     margin-bottom: 20px;
-    border-radius: 8px;
+    color: #777;
+    text-align: center;
 }
 
-#breadcrumbs > span {
-    font-size: 14px;
-    color: #007BFF;
-    cursor: pointer;
+#breadcrumbs a {
     text-decoration: none;
+    color: #007bff;
+    font-weight: 600;
 }
 
-#breadcrumbs > span:hover {
+#breadcrumbs a:hover {
     text-decoration: underline;
 }
 
-/* Main container styling */
-/* Styling for the images in the file view */
-/* Styling for the images in the file view */
-.file img {
-    width: 200px; /* Set a fixed width */
-    height: 150px; /* Set a fixed height */
-    object-fit: cover; /* Ensures the image covers the set area without distortion */
-    cursor: pointer; /* Show a pointer on hover to indicate the image is clickable */
-    transition: transform 0.2s ease-in-out; /* Smooth zoom effect */
-}
-
-.file img:hover {
-    transform: scale(1.1); /* Zoom effect when the image is hovered */
-}
-
-/* Modal styles */
-#modal {
-    display: none; /* Hidden by default */
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding-top: 60px;
-}
-
-/* Modal content (the large image) */
-#modal-content {
-    margin: auto;
-    display: block;
-    max-width: 80%;
-    max-height: 80%;
-}
-
-/* Close button for the modal */
-#modal-close {
-    color: white;
-    font-size: 36px;
-    font-weight: bold;
-    position: absolute;
-    top: 20px;
-    right: 40px;
-    cursor: pointer;
-}
-
-#modal-close:hover,
-#modal-close:focus {
-    color: #f1f1f1;
-    text-decoration: none;
-    cursor: pointer;
-}
-.container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Folder and image cards */
-.folder, .image {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #fff;
-    padding: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    cursor: pointer;
-}
-
-.folder:hover, .image:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.folder img, .image img {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    margin-bottom: 8px;
-}
-
-.folder p, .image p {
-    font-size: 14px;
-    color: #333;
-    text-align: center;
-    margin: 0;
-}
-
-/* Modal for image preview */
+/* Modal Styles */
+/* Modal for enlarged image */
 .modal {
     display: none;
     position: fixed;
@@ -266,64 +98,70 @@ h1 {
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
 }
 
 .modal-content {
-    max-width: 80%;
-    max-height: 80%;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    max-width: 85%;
+    max-height: 85%;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
+/* Close Button */
 .modal-close {
     position: absolute;
-    top: 20px;
+    top: 15px;
     right: 20px;
     font-size: 30px;
-    color: #fff;
+    color: white;
     cursor: pointer;
-    z-index: 1001;
 }
 
 .modal-close:hover {
     color: #ff4b4b;
 }
 
-/* Footer links */
-#link {
-    text-align: center;
-    margin: 20px 0;
-    font-size: 20px;
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
+#link {
+    text-align: center;
+    margin: 40px 0;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 #link a {
     color: #007BFF;
     text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
 }
 
 #link a:hover {
+    color: #0056b3;
     text-decoration: underline;
 }
 
-/* Responsive adjustments */
-@media (max-width: 600px) {
-    h1 {
-        font-size: 20px;
-    }
-
-    #breadcrumbs {
+/* Responsive Design */
+@media (max-width: 768px) {
+    #container {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
     }
-
-    .container {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        gap: 10px;
-        padding: 10px;
-    }
-
-    .folder img, .image img {
-        width: 60px;
-        height: 60px;
+    .folder, .file {
+        width: 90%;
+        max-width: 300px;
     }
 }

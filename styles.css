@@ -1,190 +1,132 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+/* General Reset */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-.container {
-    max-width: 800px;
-    margin: 50px auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-h1, h2, h3 {
-    text-align: center;
+/* Modern Background */
+body {
+    background: linear-gradient(135deg, #f8f9fa, #e3eaf5);
     color: #333;
+    padding: 20px;
 }
 
-label {
+/* Centered Title */
+h1 {
+    text-align: center;
+    font-size: 28px;
     font-weight: bold;
-    margin-top: 10px;
-    display: block;
-    color: #555;
+    color: #444;
+    margin-bottom: 20px;
 }
 
-textarea, select, button {
-    width: 100%;
-    margin: 10px 0 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-}
-
-textarea {
-    resize: vertical;
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: auto;
-    margin: 5px;
-    padding: 12px 20px;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-.buttons {
+/* Container */
+#container {
     display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
     justify-content: center;
-    gap: 15px;
-    margin-bottom: 20px;
 }
 
-.output, .metrics, .error {
-    margin-top: 20px;
-    padding: 10px;
-    border-radius: 5px;
+/* Folder & File Cards */
+.folder, .file {
+    width: 220px;
     text-align: center;
+    border-radius: 12px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.7); /* Glassmorphism Effect */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.output img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    margin: 20px auto;
-    border: 1px solid #ccc;
+.folder img, .file img {
+    max-width: 80px;
     border-radius: 8px;
+    transition: transform 0.2s ease;
 }
 
-.metrics {
-    background-color: #e8f5e9;
-    color: #2e7d32;
+.folder:hover, .file:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
-.metrics p {
-    margin: 5px 0;
-    font-weight: bold;
-}
-
-.error {
-    background-color: #ffebee;
-    color: #c62828;
-}
-
-@media (max-width: 600px) {
-    .container {
-        padding: 15px;
-    }
-
-    textarea, select, button {
-        font-size: 14px;
-    }
-
-    h1 {
-        font-size: 20px;
-    }
-
-    .buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    button {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-}
-
-
-#breadcrumbs {
-    margin-bottom: 20px;
-    font-size: 1rem;
-}
-
-.container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 15px;
-}
-
-.folder, .image {
+/* Link Styling */
+#link {
     text-align: center;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #fff;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
+    margin-top: 30px;
+    font-size: 18px;
 }
 
-.folder:hover, .image:hover {
-    transform: scale(1.05);
+#link a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
 }
 
-.folder img, .image img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    margin-bottom: 10px;
+#link a:hover {
+    color: #0056b3;
+    text-decoration: underline;
 }
-/* Modal Styles */
+
+/* 🔥 Modal Enhancements */
 .modal {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed;
-    z-index: 1000;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8); /* Black background with transparency */
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
 }
 
 .modal-content {
-    margin: auto;
-    display: block;
-    max-width: 90%;
-    max-height: 90%;
-    border: 2px solid white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 85%;
+    max-height: 85%;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
+/* Close Button */
 .modal-close {
     position: absolute;
-    top: 10px;
-    right: 25px;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
     color: white;
-    font-size: 35px;
-    font-weight: bold;
     cursor: pointer;
 }
 
-.modal-close:hover,
-.modal-close:focus {
-    color: red;
-    text-decoration: none;
-    cursor: pointer;
+.modal-close:hover {
+    color: #ff4b4b;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    #container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .folder, .file {
+        width: 90%;
+    }
 }
